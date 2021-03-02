@@ -1,12 +1,12 @@
 import React from 'react';
 import { Filter } from "../components"
+import ReactLogo from '../logo.svg';
 
 export function FilterContainer() {
   return (
     <>
       <Filter>
         <Filter.Group>
-
           <Filter.Card>
             <Filter.Text>Alcohol Vol (ABV)</Filter.Text>
             <Filter.Wrapper>
@@ -23,6 +23,8 @@ export function FilterContainer() {
             <Filter.Text>Hoppiness</Filter.Text>
             <Filter.Wrapper>
               <Filter.Form>
+                <Filter.FormText>All</Filter.FormText>
+                <Filter.InputLabel icon={ReactLogo}/>
                 <Filter.Input type="radio" />
                 <Filter.Input type="radio" />
                 <Filter.Input type="radio" />

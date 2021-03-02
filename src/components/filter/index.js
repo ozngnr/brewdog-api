@@ -5,7 +5,8 @@ import { Container,
   Text,
   Wrapper, 
   Form, 
-  Input, 
+  Input,
+  InputLabel, 
   FormText,
   PageButton 
 } from "./styles/filter"
@@ -36,6 +37,10 @@ Filter.Form = function FilterForm({children, ...restProps}) {
 
 Filter.Input = function FilterInput({...restProps}) {
   return <Input {...restProps}/>
+}
+
+Filter.InputLabel = function FilterInputLabel({...restProps}) {
+  return <InputLabel {...restProps} />
 }
 
 Filter.FormText = function FilterFormText({children, ...restProps}) {
