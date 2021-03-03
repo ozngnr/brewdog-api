@@ -10,12 +10,14 @@ function BeerContextProvider({children}) {
 
     fetch(url)
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        setAllBeers(data)
+      })
       .catch(err => console.log(err))
   }, [])
 
   return (
-    <BeerContext.Provider value={{}}>
+    <BeerContext.Provider value={{allBeers}}>
       {children}
     </BeerContext.Provider>
   )
