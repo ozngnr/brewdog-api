@@ -4,9 +4,10 @@ import { Container,
   Card, 
   Text,
   Wrapper, 
-  Form, 
-  Input,
-  InputLabel, 
+  Form,
+  Item,
+  RadioButton,
+  RadioLabel, 
   FormText,
   PageButton 
 } from "./styles/filter"
@@ -35,15 +36,18 @@ Filter.Form = function FilterForm({children, ...restProps}) {
   return <Form {...restProps}>{children}</Form>
 }
 
-Filter.Input = function FilterInput({...restProps}) {
-  return <Input {...restProps}/>
+Filter.Item = function FilterItem({ checked, children, ...restProps}) {
+  return (
+    <Item>
+      <RadioLabel checked={checked}>
+        <RadioButton checked={checked} {...restProps}/>
+        {children}
+      </RadioLabel>
+    </Item>
+  )
 }
 
-Filter.InputLabel = function FilterInputLabel({...restProps}) {
-  return <InputLabel {...restProps} />
-}
-
-Filter.FormText = function FilterFormText({children, ...restProps}) {
+Filter.FormText = function FilterFormText({ children, ...restProps}) {
   return <FormText {...restProps}>{children}</FormText>
 }
 

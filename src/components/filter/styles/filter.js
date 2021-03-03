@@ -37,23 +37,62 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-export const Input = styled.input`
-
-`;
-
-export const InputLabel = styled.label`
-  height: 2rem;
-  width: 2rem;
-  margin: .5rem;
-  background: no-repeat;
-  border: 1px solid red;
-  background-image: url(${({icon}) => icon})
-`;
-
 export const FormText = styled.span`
   font-size: 2rem;
-  color: white;
-  padding: .5rem 1rem;
 `;
 
-export const PageButton = styled.button``;
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const RadioButton = styled.input.attrs({ type: "radio" })`
+  opacity: 0;
+  position: absolute;
+`;
+
+export const RadioLabel = styled.label`
+  margin: .5em;
+  cursor: pointer;
+
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
+
+    &.beer {
+      fill: ${({checked}) => checked ? "#ffb144" : "#f2f2f2"};
+
+      &:hover {
+        fill: #ffb144
+      }
+    }
+    
+    &.hops {
+      fill: ${({checked}) => checked ? "green" : "white"};
+
+      &:hover,
+      &:focus {
+        fill: green
+      }
+    }
+  }
+
+  ${FormText} {
+    color: ${({checked}) => checked ? "#0365c0" : "white"};
+  }
+`;
+
+
+export const PageButton = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 2rem;
+  padding: .2rem .8rem 0 .8rem;
+  color: #f2f2f2;
+  cursor: pointer;
+
+  &:hover {
+    color: #0365c0;
+  }
+`;

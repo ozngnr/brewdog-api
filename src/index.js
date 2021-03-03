@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BeerContextProvider } from "./context/beerContext"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BeerContextProvider>
+      <App />
+    </BeerContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
