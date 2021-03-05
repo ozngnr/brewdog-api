@@ -4,7 +4,7 @@ import { BeerContext } from "../context/beerContext"
 
 export function BeerContainer() {
   const { allBeers } = useContext(BeerContext)
-  console.log(allBeers)
+
   return (
     <>
       <Beer.Group>

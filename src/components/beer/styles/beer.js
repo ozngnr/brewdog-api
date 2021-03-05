@@ -9,13 +9,14 @@ export const Container = styled.div`
 `;
 export const Group = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1em;
   padding: 0 2em;
+  margin-bottom: 1em;
 `;
 export const Card = styled.div`
   width:100%;
-  padding: 1em 0;
+  padding: 1em;
   position: relative;
 `;
 export const Item = styled.div`
@@ -36,6 +37,7 @@ export const Image = styled.img`
 export const SubTitle = styled.h3`
   font-size: 1.25rem;
   margin-top: .75em;
+
 `;
 export const ItemText = styled.p`
   margin-top: 1em;

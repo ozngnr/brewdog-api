@@ -6,11 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BeerContextProvider } from "./context/beerContext"
 
 ReactDOM.render(
-  <React.StrictMode>
     <BeerContextProvider>
       <App />
-    </BeerContextProvider>
-  </React.StrictMode>,
+    </BeerContextProvider>,
   document.getElementById('root')
 );
 

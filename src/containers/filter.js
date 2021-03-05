@@ -1,22 +1,19 @@
-import React, {useState} from 'react';
+import React, { useContext } from 'react';
 import { Filter } from "../components"
 import { AbvWeak, AbvMedium, AbvStrong, IbuMedium, IbuWeak, IbuStrong } from "../icons"
-
+import { BeerContext } from "../context/beerContext"
 
 
 export function FilterContainer() {
-  const [abvValue, setAbvValue] = useState("all")
-  const [ibuValue, setIbuValue] = useState("all")
-  
-  function handleAbv (e) {
-    console.log(abvValue)
-    setAbvValue(e.target.value)
-  }
-
-  function handleIbu (e) {
-    console.log(abvValue)
-    setIbuValue(e.target.name)
-  }
+  const {
+    allBeers,
+    abvValue,
+    ibuValue,
+    setAbvValue,
+    setIbuValue, 
+    page, 
+    setPage
+  } = useContext(BeerContext)
 
   return (
     <>
@@ -27,34 +24,30 @@ export function FilterContainer() {
             <Filter.Wrapper>
               <Filter.Form>
                 <Filter.Item
-                  name="all" 
                   value="all"
                   checked={abvValue === "all"} 
-                  onChange={handleAbv}
+                  onChange={e => setAbvValue(e.target.value)}
                 >
                   <Filter.FormText>All</Filter.FormText>
                 </Filter.Item>
                 <Filter.Item 
-                  name="weak" 
                   value="weak" 
                   checked={abvValue === "weak"} 
-                  onChange={handleAbv}
+                  onChange={e => setAbvValue(e.target.value)}
                 >
                   <AbvWeak />
                 </Filter.Item>
                 <Filter.Item
-                  name="medium" 
                   value="medium"
                   checked={abvValue === "medium"} 
-                  onChange={handleAbv}
+                  onChange={e => setAbvValue(e.target.value)}
                 >
                   <AbvMedium />
                 </Filter.Item>
                 <Filter.Item
-                  name="strong" 
                   value="strong" 
                   checked={abvValue === "strong"} 
-                  onChange={handleAbv}
+                  onChange={e => setAbvValue(e.target.value)}
                 >
                   <AbvStrong />
                 </Filter.Item>
@@ -68,34 +61,30 @@ export function FilterContainer() {
             <Filter.Wrapper>
               <Filter.Form>
               <Filter.Item
-                  name="all" 
                   value="all"
                   checked={ibuValue === "all"} 
-                  onChange={handleIbu}
+                  onChange={e => setIbuValue(e.target.value)}
                 >
                   <Filter.FormText>All</Filter.FormText>
                 </Filter.Item>
                 <Filter.Item 
-                  name="weak" 
                   value="weak" 
                   checked={ibuValue === "weak"} 
-                  onChange={handleIbu}
+                  onChange={e => setIbuValue(e.target.value)}
                 >
                   <IbuWeak />
                 </Filter.Item>
                 <Filter.Item
-                  name="medium" 
                   value="medium"
                   checked={ibuValue === "medium"} 
-                  onChange={handleIbu}
+                  onChange={e => setIbuValue(e.target.value)}
                 >
                   <IbuMedium />
                 </Filter.Item>
                 <Filter.Item
-                  name="strong" 
                   value="strong"
                   checked={ibuValue === "strong"} 
-                  onChange={handleIbu}
+                  onChange={e => setIbuValue(e.target.value)}
                 >
                   <IbuStrong />
                 </Filter.Item>
@@ -105,13 +94,13 @@ export function FilterContainer() {
           </Filter.Card>
 
           <Filter.Card>
-            <Filter.Text>Page: 1</Filter.Text>
+            <Filter.Text>Page: {page}</Filter.Text>
             <Filter.Wrapper>
-              <Filter.PageButton disabled>
-                <i class="far fa-caret-square-left"></i>
+              <Filter.PageButton onClick={() => setPage(page => page > 1 && page - 1)} disabled={ page === 1 }>
+                <i className="far fa-caret-square-left"></i>
               </Filter.PageButton>
-              <Filter.PageButton>
-                <i class="far fa-caret-square-right"></i>
+              <Filter.PageButton onClick={() => setPage(page => page + 1)} disabled={allBeers.length < 24}>
+                <i className="far fa-caret-square-right"></i>
               </Filter.PageButton>
             </Filter.Wrapper>
           </Filter.Card>

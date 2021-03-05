@@ -1,5 +1,6 @@
 import React from "react"
-import { Container, 
+import { 
+  Container, 
   Group, 
   Card, 
   Text,
@@ -51,6 +52,6 @@ Filter.FormText = function FilterFormText({ children, ...restProps}) {
   return <FormText {...restProps}>{children}</FormText>
 }
 
-Filter.PageButton = function FilterPageButton({children, ...restProps}) {
-  return <PageButton {...restProps}>{children}</PageButton>
+Filter.PageButton = function FilterPageButton({ onClick, disabled, children, ...restProps}) {
+  return <PageButton onClick={onClick} disabled={disabled} {...restProps}>{children}</PageButton>
 }

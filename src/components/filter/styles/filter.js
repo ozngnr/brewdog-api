@@ -91,8 +91,14 @@ export const PageButton = styled.button`
   padding: .2rem .8rem 0 .8rem;
   color: #f2f2f2;
   cursor: pointer;
+  transition : color 0.1s ease-in-out;
 
   &:hover {
     color: #0365c0;
+  }
+
+  &:disabled {
+    color: black;
+    cursor: default;
   }
 `;
