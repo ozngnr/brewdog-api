@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   display:flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 16, 0.19),
   0 0.3rem 0.3rem rgba(0, 0, 16, 0.23);
