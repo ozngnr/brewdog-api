@@ -70,15 +70,18 @@ export const RadioLabel = styled.label`
     &.hops {
       fill: ${({checked}) => checked ? "green" : "white"};
 
-      &:hover,
-      &:focus {
+      &:hover {
         fill: green
       }
     }
   }
 
-  ${FormText} {
+  > ${FormText} {
     color: ${({checked}) => checked ? "#0365c0" : "white"};
+
+    &:hover {
+      color: #0365c0
+    }
   }
 `;
 

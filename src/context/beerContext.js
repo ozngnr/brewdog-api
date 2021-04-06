@@ -31,7 +31,6 @@ function BeerContextProvider({children}) {
   }
 
   function filterIbu() {
-    console.log(ibuValue)
     switch (ibuValue) {
       case "weak":
         ibuOption = "&ibu_lt=35";
